@@ -1,7 +1,7 @@
 <%-- 
     Document   : Footer
     Created on : Mar 13, 2020, 9:22:11 PM
-    Author     : DonOzOn
+    Author     : phongnthe140289
 --%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>

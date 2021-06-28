@@ -41,7 +41,7 @@
                         </ul>
                         <div class="paging">
                             <c:forEach begin="1" end="${totalImagePage}" var="i">
-                                <a class="${i == currentPage?"active":""}" href="gallery?pageNumber=${i}&galleryID=${gallery.ID}">${i}</a>
+                                <a class="${i == currentPage?"active":""}" href="gallery?pageNumber=${i}&galleryID=${gallery.id}">${i}</a>
                             </c:forEach>
                         </div>
                     </div>              
