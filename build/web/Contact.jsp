@@ -23,24 +23,24 @@
                     <div class="content-contact">
                         <h4>PHOTOGRAPHER</h4>
                         <div class="country">
-                            <p>Address: ${contact.address}<br>City:<span class="tab-1"></span>${contact.city}<br>Country:  ${contact.country}</p>
+                            <p>Address: ${fullContact.address}<br>City:<span class="tab-1"></span>${fullContact.city}<br>Country:  ${fullContact.country}</p>
                         </div>
                         <div class="infor">
                             <table>
                                 <tr>
                                     <td>Tel: </td>
-                                    <td>${contact.telephone}</td>
+                                    <td>${fullContact.telephone}</td>
                                 </tr>
                                 <tr>
                                     <td>Email: </td>
-                                    <td>${contact.email}</td>
+                                    <td>${fullContact.email}</td>
                                 </tr>
 
                             </table>
                             <label> </label> <span></span>
                         </div> 
                         <div class="map">
-                            <iframe src="${contact.mapLocationUrl}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <iframe src="${fullContact.mapLocationUrl}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
                     </div>
 

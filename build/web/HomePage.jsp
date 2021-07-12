@@ -1,7 +1,7 @@
 <%-- 
     Document   : HomePage
     Created on : Mar 13, 2020, 8:25:40 AM
-    Author     : DonOzOn
+    Author     : phongnthe140289
 --%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,16 +18,11 @@
             <div class="main">
                 <div class="left">
                     <div class="image">
-                        <img src="${contact.contactImage}" alt="First">
+                        <img src="${shortContact.contactImage}" alt="First">
                     </div>
                     <div class="description">
-                        Lorem ipsum dolor sit amet
                     </div>
                     <div class="content">
-                        <c:if test="${error != null}">
-                            <h3> ${error}</h3>
-                        </c:if>
-                        <c:if test="${error == null}">
                             <ul>                             
                                 <c:forEach items="${listGalleries}" var="i" >
                                     <li class="span4">
@@ -35,14 +30,13 @@
                                             <img src="${i.mainImage}">
                                         </div>
                                         <h4>
-                                            <a href="gallery?galleryID=${i.ID}">View ${i.name}</a>
+                                            <a href="gallery?galleryID=${i.id}">View ${i.name}</a>
                                         </h4>
                                         <p>${i.description}</p>
                                     </li>
                                 </c:forEach>
                             </ul>
-
-                        </c:if>    
+                   
                         <div class="paging">                        
                             <c:forEach begin="1" end="${totalGalleriesPage}" var="i">
                                 <a class="${i == currentPage ? "active":""}" href="home?pageNumber=${i}">${i}</a>
@@ -53,7 +47,7 @@
                         <h3>About me</h3>
                     </div>
                     <div class="about-detail">
-                        ${contact.aboutMe}
+                        ${shortContact.aboutMe}
                     </div>
                 </div>
                 <div class="right">

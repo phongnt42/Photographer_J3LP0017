@@ -1,7 +1,7 @@
 <%-- 
     Document   : header
     Created on : Mar 13, 2020, 9:18:13 PM
-    Author     : DonOzOn
+    Author     : phongnthe140289
 --%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,7 +17,7 @@
                 <ul>
                     <li> <a class="${active=="0"?"activeMenu":""}" href="./home">My front page</a></li>
                         <c:forEach items="${topGalleries}" var="i" >
-                        <li> <a class="${active==i.ID?"activeMenu":""}" href="gallery?galleryID=${i.ID}">${i.name}</a> </li>
+                        <li> <a class="${active==i.id?"activeMenu":""}" href="gallery?galleryID=${i.id}">${i.name}</a> </li>
                         </c:forEach>
                     <li> <a class="${active=="4"?"activeMenu":""}" href="./contact">Contact</a> </li>
                 </ul>

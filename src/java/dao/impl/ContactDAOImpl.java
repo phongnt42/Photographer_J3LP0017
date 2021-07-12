@@ -38,14 +38,14 @@ public class ContactDAOImpl extends DBContext implements ContactDAO {
     }
 
     /**
-     * A method to get photographer's contact information from
+     * A method to get all photographer's contact information from
      * database.
      *
      * @return <code>entity.Contact</code> object.
      * @throws Exception
      */
     @Override
-    public Contact getContact() throws Exception {
+    public Contact getFullContactInfo() throws Exception {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -65,6 +65,66 @@ public class ContactDAOImpl extends DBContext implements ContactDAO {
                 contact.setTelephone(rs.getString("Telephone"));
                 contact.setEmail(rs.getString("Email"));
                 contact.setMapLocationUrl(rs.getString("MapLocationUrl"));
+            }
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(con);
+        }
+        return contact;
+    }
+
+    /**
+     * A method to get short photographer's contact information from database.
+     * @return <code>entity.Contact</code> object.
+     * @throws Exception 
+     */
+    @Override
+    public Contact getShortContactInfo() throws Exception {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Contact contact = null;
+        try {
+            con = getConnection();
+            String sqlQuery = "select TOP(1) * from [contact]";
+            ps = con.prepareStatement(sqlQuery);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                contact = new Contact();
+                contact.setAboutMe(rs.getString("AboutMe"));
+                contact.setContactImage(getImagePath() + rs.getString("ContactImage"));
+            }
+        } catch (Exception ex) {
+            throw ex;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(con);
+        }
+        return contact;
+    }
+
+    /**
+     * A method to get social sharing page information from database.
+     * @return <code>entity.Contact</code> object.
+     * @throws Exception 
+     */
+    @Override
+    public Contact getSocialSharingPageInfo() throws Exception {
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Contact contact = null;
+        try {
+            con = getConnection();
+            String sqlQuery = "select TOP(1) * from [contact]";
+            ps = con.prepareStatement(sqlQuery);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                contact = new Contact();
                 contact.setFacebookUrl(rs.getString("FacebookUrl"));
                 contact.setTwitterUrl(rs.getString("TwitterUrl"));
                 contact.setGoogleUrl(rs.getString("GoogleUrl"));

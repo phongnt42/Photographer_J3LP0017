@@ -5,11 +5,12 @@
  *
  * Record of change:
  * DATE            Version            AUTHOR               DESCRIPTION
- * 2021/06/18      <1.0>              PhongNTHE140289      Implementation
- * 2021/06/19      <1.0>              PhongNTHE140289      Evaluation
- * 2021/06/20      <1.0>              PhongNTHE140289      Fix bug
- * 2021/06/21      <1.0>              PhongNTHE140289      Review 
- * 2021/06/25      <1.0>              PhongNTHE140289      Fix comment 
+ * 2021/06/18      <1.0>            PhongNTHE140289        Implementation 
+ * 2021/06/19      <1.0>            PhongNTHE140289        Evaluation 
+ * 2021/06/20      <1.0>            PhongNTHE140289        Fix bug
+ * 2021/06/21      <1.0>            PhongNTHE140289        Review 
+ * 2021/06/25      <1.0>            PhongNTHE140289        Fix comment
+ * 
  */
 package controller;
 
@@ -29,25 +30,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class contains doGet method to handle HTTP GET request from client. This
- * class uses getContact method to get photographer's contact information from
- * ContactDAOImpl object; getTopGalleries method to get top 3 gallery from
- * GalleryDAOImpl object. Then send these data to Contact.jsp page. If there is
- * any error occurs, send error message to Error.jsp page.
+ * This class contains <code>doGet</code> method to handle the HTTP
+ * <code>GET</code> method. This class uses <code>ContactDAOImpl</code> object
+ * to get full contact information of photographer and information of social
+ * sharing pages; uses <code>GalleryDAOImpl</code> object to get top 3
+ * galleries. Then send these data to Contact.jsp page. If there is any error
+ * occurs, send error message to Error.jsp page.
  *
  * @author PhongFPT
  */
 public class ContactController extends HttpServlet {
 
     /**
-     * This method uses getContact method to get photographer's contact
-     * information from ContactDAOImpl object; getTopGalleries method to get top
-     * 3 gallery from GalleryDAOImpl object. Then send these data to Contact.jsp
-     * page. If there is any error occurs, send error message to Error.jsp page.
-     * Handles the HTTP <code>GET</code> method.
+     * This method uses <code>ContactDAOImpl</code> object to get full contact
+     * information of photographer and information of social sharing pages;
+     * <code>GalleryDAOImpl</code> object to get top 3 galleries. Then send
+     * these data to Contact.jsp page. If there is any error occurs, send error
+     * message to Error.jsp page. Handles the HTTP <code>GET</code> method.
      *
-     * @param request stores attributes: accessView, contact, topGalleries then
-     * send these data to Contact.jsp page. It is a
+     * @param request stores attributes: fullContact, socialSharingPage,
+     * topGalleries then send these data to Contact.jsp page. It is a
      * <code>javax.servlet.http.HttpServletRequest</code>object.
      *
      * @param response assists a servlet to send a response of HTTP request to
@@ -61,10 +63,13 @@ public class ContactController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            // get photographer's contact
+            // get photographer's contact information
             ContactDAO contactDAO = new ContactDAOImpl();
-            Contact contact = contactDAO.getContact();
-            request.setAttribute("contact", contact);
+            Contact contact = contactDAO.getFullContactInfo();
+            request.setAttribute("fullContact", contact);
+            // get social sharing pages information
+            Contact socialSharingPage = contactDAO.getSocialSharingPageInfo();
+            request.setAttribute("socialSharingPage", socialSharingPage);
             // get top 3 galleries
             GalleryDAO galleryDAO = new GalleryDAOImpl();
             List<Gallery> topGalleries = galleryDAO.getTopGalleries(3);

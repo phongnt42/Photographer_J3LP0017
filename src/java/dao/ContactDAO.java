@@ -24,10 +24,25 @@ import entity.Contact;
 public interface ContactDAO {
 
     /**
-     * A method to get photographer's contact information from database.
+     * A method to get all photographer's contact information from database.
      *
      * @return <code>entity.Contact</code> object.
      * @throws Exception
      */
-    public Contact getContact() throws Exception;
+    public Contact getFullContactInfo() throws Exception;
+    
+    /**
+     * A method to get short photographer's contact information from database.
+     * @return <code>entity.Contact</code> object.
+     * @throws Exception 
+     */
+    public Contact getShortContactInfo() throws Exception;
+    
+    /**
+     * A method to get social sharing page information from database.
+     * @return <code>entity.Contact</code> object.
+     * @throws Exception 
+     */
+    public Contact getSocialSharingPageInfo() throws Exception;
+    
 }

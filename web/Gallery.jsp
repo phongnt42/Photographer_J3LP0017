@@ -1,7 +1,7 @@
 <%-- 
     Document   : HomePage
     Created on : Mar 13, 2020, 8:25:40 AM
-    Author     : DonOzOn
+    Author     : phongnthe140289
 --%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,7 +41,7 @@
                         </ul>
                         <div class="paging">
                             <c:forEach begin="1" end="${totalImagePage}" var="i">
-                                <a class="${i == currentPage?"active":""}" href="gallery?pageNumber=${i}&galleryID=${gallery.ID}">${i}</a>
+                                <a class="${i == currentPage?"active":""}" href="gallery?pageNumber=${i}&galleryID=${gallery.id}">${i}</a>
                             </c:forEach>
                         </div>
                     </div>              

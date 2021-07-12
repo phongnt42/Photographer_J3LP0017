@@ -20,7 +20,7 @@ package entity;
  */
 public class Gallery {
 
-    private int ID;
+    private int id;
     private String name;     
     private String mainImage;
     private String description;   
@@ -35,13 +35,13 @@ public class Gallery {
     /**
      * A parameterized constructor to initialize Gallery object
      * 
-     * @param ID the id of a gallery. It is an int number.
+     * @param id the id of a gallery. It is an int number.
      * @param name the name of a gallery. It is a <code>java.lang.String</code> object
      * @param mainImage the main image of an gallery. It is a <code>java.lang.String</code> object
      * @param description the description of an gallery. It is a <code>java.lang.String</code> object
      */
-    public Gallery(int ID, String name, String mainImage, String description) {
-        this.ID = ID;
+    public Gallery(int id, String name, String mainImage, String description) {
+        this.id = id;
         this.name = name;
         this.mainImage = mainImage;
         this.description = description;
@@ -51,16 +51,16 @@ public class Gallery {
      * A method returns gallery's ID.
      * @return the ID of gallery. It is an int number.
      */
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
     
     /**
      * A method to set gallery's ID.
-     * @param ID the ID of gallery. It is an int number.
+     * @param id the ID of gallery. It is an int number.
      */
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

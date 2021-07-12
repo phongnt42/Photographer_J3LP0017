@@ -5,7 +5,7 @@
  *
  * Record of change:
  * DATE            Version            AUTHOR               DESCRIPTION
- * 2021/06/18      <1.0>              PhongNTHE140289      Implemetation
+ * 2021/06/18      <1.0>              PhongNTHE140289      Implementation
  * 2021/06/19      <1.0>              PhongNTHE140289      Evaluation
  * 2021/06/20      <1.0>              PhongNTHE140289      Fix bug
  * 2021/06/21      <1.0>              PhongNTHE140289      Review 

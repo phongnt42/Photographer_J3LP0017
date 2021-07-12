@@ -20,7 +20,7 @@ package entity;
  */
 public class Image {
 
-    private int ID;
+    private int id;
     private String imageUrl;
     private int galeryID;
 
@@ -39,7 +39,7 @@ public class Image {
      * @param galeryId the id of a gallery. It is an int number.
      */
     public Image(int id, String imageUrl, int galeryId) {
-        this.ID = id;
+        this.id = id;
         this.imageUrl = imageUrl;
         this.galeryID = galeryId;
     }
@@ -48,16 +48,16 @@ public class Image {
      * A method returns image's ID.
      * @return the ID of image. It is an int number.
      */
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     /**
      * A method to set image's ID.
-     * @param ID the ID of image. It is an int number.
+     * @param id the ID of image. It is an int number.
      */
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

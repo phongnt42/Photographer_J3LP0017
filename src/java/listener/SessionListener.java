@@ -47,7 +47,6 @@ public class SessionListener implements HttpSessionListener {
             String numberOfView = String.format("%06d", numberOfViewDAO.getWebsiteView());
             HttpSession session = se.getSession();
             session.setAttribute("websiteView", numberOfView.toCharArray());
-            session.setMaxInactiveInterval(60);
         } catch (Exception ex) {
             Logger.getLogger(SessionListener.class.getName()).log(Level.SEVERE, null, ex);
         }

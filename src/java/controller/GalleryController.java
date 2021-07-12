@@ -1,14 +1,14 @@
 /**
  * Copyright(C) 2021,  PhongNTHE140289.
- * J3LP0017
- * Photographer
+ * J3LP0017 Photographer
  *
  * Record of change:
  * DATE            Version            AUTHOR               DESCRIPTION
- * 2021/06/18      <1.0>              PhongNTHE140289      Implementation
- * 2021/06/19      <1.0>              PhongNTHE140289      Evaluation
- * 2021/06/20      <1.0>              PhongNTHE140289      Fix bug
- * 2021/06/21      <1.0>              PhongNTHE140289      Review 
+ * 2021/06/18      <1.0>            PhongNTHE140289        Implementation 
+ * 2021/06/19      <1.0>            PhongNTHE140289        Evaluation 
+ * 2021/06/20      <1.0>            PhongNTHE140289        Fix bug
+ * 2021/06/21      <1.0>            PhongNTHE140289        Review 
+ * 2021/06/25      <1.0>            PhongNTHE140289        Fix comment
  */
 package controller;
 
@@ -31,13 +31,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This class contains doGet method to handle HTTP GET request from client. This
- * class uses getGalleryByID method to get gallery information by its ID from
- * GalleryDAOImpl object; listImages method to get list of images by galleryID
- * from ImageDAOImpl object; getTopGalleries method to get top 3 gallery
- * GalleryDAOImpl object; getContact method to get photographer's contact
- * information from ContactDAOImpl object. Then send these data to Gallery.jsp
- * page. If there is any error occurs, send error message to Error.jsp page.
+ * This class contains <code>doGet</code> method to handle the HTTP
+ * <code>GET</code> method. This class uses <code>GalleryDAOImpl</code> object
+ * to get a gallery's information based on its ID and to get top 3 galleries;
+ * <code>ImageDAOImpl</code> object to get list of images based on galleryID;
+ * <code>ContactDAOImpl</code> object to get information of social sharing
+ * pages. Then send these data to Gallery.jsp page. If there is any error
+ * occurs, send error message to Error.jsp page.
  *
  * @author PhongFPT
  */
@@ -47,16 +47,16 @@ public class GalleryController extends HttpServlet {
     private final static int PAGE_SIZE = 8;
 
     /**
-     * This method uses getGalleryByID method to get gallery information by its
-     * ID from GalleryDAOImpl object; listImages method to get list of images by
-     * galleryID from ImageDAOImpl object; getTopGalleries method to get top 3
-     * gallery GalleryDAOImpl object; getContact method to get photographer's
-     * contact information from ContactDAOImpl object. Then send these data to
-     * Gallery.jsp page. If there is any error occurs, send error message to
-     * Error.jsp page. Handles the HTTP <code>GET</code> method.
+     * This method uses <code>GalleryDAOImpl</code> object to get a gallery's
+     * information based on its ID and to get top 3 galleries;
+     * <code>ImageDAOImpl</code> object to get list of images based on
+     * galleryID; <code>ContactDAOImpl</code> object to get information of
+     * social sharing pages. Then send these data to Gallery.jsp page. If there
+     * is any error occurs, send error message to Error.jsp page. Handles the
+     * HTTP <code>GET</code> method.
      *
-     * @param request stores attributes: accessView, contact, topGalleries,
-     * gallery, currentPage, listImages, totalImagePage then send these data to
+     * @param request stores attributes: socialSharingPage, topGalleries, gallery,
+     * currentPage, listImages, totalImagePage then send these data to
      * Gallery.jsp page. It is a
      * <code>javax.servlet.http.HttpServletRequest</code>object.
      *
@@ -71,10 +71,10 @@ public class GalleryController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            // get photographer's contact
-            ContactDAO contactDAO = new ContactDAOImpl();
-            Contact contact = contactDAO.getContact();
-            request.setAttribute("contact", contact);
+            // get social sharing page information
+            ContactDAO contactDAO = new ContactDAOImpl();            
+            Contact socialSharingPage = contactDAO.getSocialSharingPageInfo();
+            request.setAttribute("socialSharingPage", socialSharingPage);
             // get top 3 galleries
             GalleryDAO galleryDAO = new GalleryDAOImpl();
             List<Gallery> topGalleries = galleryDAO.getTopGalleries(3);
